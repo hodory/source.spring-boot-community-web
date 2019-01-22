@@ -1,6 +1,7 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.2.RELEASE'
+        // 2.x 버전에서는 OAuth2가 시큐리티 내부에 들어 있으므로 1.5 버전대로 설정
+        springBootVersion = '1.5.14.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -23,6 +24,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.security.oauth:spring-security-oauth2'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
