@@ -5,19 +5,32 @@ import com.khzero.springboot.domain.User;
 import com.khzero.springboot.domain.enums.BoardType;
 import com.khzero.springboot.repository.BoardRepository;
 import com.khzero.springboot.repository.UserRepository;
+import com.khzero.springboot.resolver.UserArgumentResolver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.stream.IntStream;
 
 @SpringBootApplication
-public class BootWebApplication {
+public class BootWebApplication implements WebMvcConfigurer {
 
     public static void main(String[] args) {
         SpringApplication.run(BootWebApplication.class, args);
+    }
+
+    @Autowired
+    private UserArgumentResolver userArgumentResolver;
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        argumentResolvers.add(userArgumentResolver);
     }
 
     @Bean
