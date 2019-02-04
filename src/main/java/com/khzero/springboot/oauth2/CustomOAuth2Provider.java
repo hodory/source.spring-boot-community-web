@@ -30,5 +30,5 @@ public enum CustomOAuth2Provider {
         return builder;
     }
 
-    public abstract ClientRegistration.Builder getBuilder (String registrationId);
+    public abstract ClientRegistration.Builder getBuilder(String registrationId);
 }

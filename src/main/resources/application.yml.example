@@ -1,4 +1,9 @@
 spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3305/spring_boot
+    username: spring_boot
+    password: khzero@test
+    driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: create
